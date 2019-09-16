@@ -21,7 +21,8 @@ RMDIR /S /Q tcl
 
 :: Create new virtual environment
 echo NEW ENV: Creating new environment...
-virtualenv "%cd%"
+FOR /F "tokens=* USEBACKQ" %%F IN (`py -3.6 -c "import sys; print(sys.executable);"`) DO (SET py_loc=%%F)
+virtualenv -p "%py_loc%" "%cd%"
 
 :: Install the required packages
 echo NEW ENV: Installing required packages...
