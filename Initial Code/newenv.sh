@@ -34,14 +34,14 @@ virtualenv "$cd"
 echo NEW ENV: Installing required packages...
 source bin/activate
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r ./requirements.txt
 
 # Environment setup
 echo NEW ENV: Done creating new environment.
 
 # Check to make sure environment is set up correctly
 echo NEW ENV: Checking environment configuration...
-python env_check.py
+python ./env_check.py
 echo NEW ENV: Done.
 
 # Deactivating virtual env
